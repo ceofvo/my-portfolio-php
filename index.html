@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Personal Website</title>
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+   </head>
+
+  <body>
+  
+  <header id="head" class="the-header">
+	  	<div class="nav-left">
+		<h2 class="logo"><a href="#">Demola Akinpelu</a></h2>
+		</div>
+		<div class="nav-right">
+			<ul class="our-nav">
+			  <li><a href="#head">Home</a></li>
+			  <li><a href="#experience">Experience</a></li>
+			  <li><a href="#portfolio">Portfolio</a></li>
+			  <li><a href="#contact">Contact me</a></li>
+			</ul>
+		</div>
+  </header>
+  
+  <main>
+	<section class="banner">
+	<img src="assets/img/me.jpg" alt="passport" class="banner-img img-format">
+	<h2>Hello, I’m Demola Akinpelu</h2>
+	<p>Software Engineer & IT Consultant</p>
+	
+	</section>
+	<section id="experience" class="container">
+	<div class="card">
+		<h2>Background</h2>
+        <p>I’m an a full stack web developer and software enginner who loves everything about the web. I've lived in lots of different places and have worked in lots of different jobs. I’m excited to bring my life experience to the process of building fantastic looking websites.</p>
+        <p>I’ve worked with some Tier 1 banks in Nigeria and I love entrepreneurship, I am a life-long learner who's always interested in expanding my skills.</p>
+	</div>
+	<div class="card">
+		<h2>Goals</h2>
+        <p>I am an expert in many skills and technology and I will coach you to master the process of building web sites and increase your knowledge, skills and abilities in:</p>
+        <ul class="skills">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Bootstrap</li>
+          <li>Wordpress</li>
+          <li>JavaScript</li>
+        </ul>
+        <p>I’d like to work with you in your journey to being a web designer who can build an impressive online presence for clients.</p>
+	</div>
+	</section>
+	<section id="portfolio">
+			<div class="mysections">
+			<img class="myicon" src="assets/img/camera.png">
+			<h2 class="headings">My Portfolio</h2>
+			</div>
+			<div class="container">
+			<div class="photo-container">
+				<div class="photo">
+				  <img src="assets/img/1.jpg" alt="A photo of a grizzly bear">	
+				    <div class="photo-overlay">
+					  <h3>Academy Landing Page</h3>
+					  <p>A Website Development Masterclass Landing Page written developed with HTML, CSS & Bootstrap.</p>
+					    <a href="#">View Project</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="photo-container">
+				<div class="photo">
+				  <img src="assets/img/2.jpg" alt="A mountainous landscape">	
+				  <div class="photo-overlay">
+					  <h3>Responsive EPL Table</h3>
+					  <p>A mobile Responsive League Table for Barclay Premier League 2018/2019.</p>
+					  <a href="#">View Project</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="photo-container">
+				<div class="photo">
+				  <img src="assets/img/3.jpg" alt="Yosemite national park">	
+				  <div class="photo-overlay">
+					  <h3>Student Record Finder</h3>
+					  <p>A mini search engine to retrieve records in Javascript written in HTML, CSS & Vanilla JavaScript.</p>
+					  <a href="#">View Project</a>
+					</div>
+				</div>
+			</div>	
+			
+			
+			
+	</div>	
+	</section>
+	<section id="contact">
+		<div class="mysections">
+		<img class="myicon" src="assets/img/message.png" alt="message icon">
+	    <h2 class="headings">Contact</h2>
+		<p class="subheadings">Have a question? Ask me anything.</p>
+		</div>
+		<form action="https://formspree.io/verticalorigin@yahoo.com" method="POST" class="form-format">
+			<div>
+			<label for="fullname" class="form-label">Full Name</label><br>
+			<input id="fullname" class="form-input" type="text" name="full-name" placeholder="e.g John Doe" required>
+			</div>
+			
+			<div>
+			<label for="youremail" class="form-label">Your Email Address</label><br>
+			<input id="youremail" class="form-input" type="email" name="email-address" placeholder="e.g me@yahoo.com" required>
+            </div>
+			
+			<div>
+			<label for="yourphone" class="form-label">Your Phone Number</label><br>
+			<input id="yourphone" class="form-input" type="tel" name="phone-number" placeholder="e.g 08012345678" pattern="[0-9]{11}" maxlength="11" required>
+			</div>
+			
+            <div>
+			<label for="subject"class="form-label">Subject</label><br>
+			<input id="subject" class="form-input"type="text" name="subject" required>
+			</div>
+			
+			<div>
+			<label for="message" class="form-label">Enter Your Message</label><br>
+			<textarea id="message" class="form-input" rows="5" name="message" required></textarea>
+			</div>
+			<button type="submit" class="form-button">Send Message</button>
+		</form>
+	</section>
+  
+  
+  </main>
+  
+  <footer>
+  		<ul>
+			<li><a href="#" class="social"><img class="myicon" src="assets/img/twitter.png" alt="twitter icon"><br>Twitter</a></li>
+			<li><a href="#" class="social"><img class="myicon" src="assets/img/linkedin.png" alt="linkedin icon"><br>Linkedin</a></li>
+			<li><a href="#" class="social"><img class="myicon" src="assets/img/github.png" alt="github icon"><br>Github</a></li>
+		</ul>
+		 <p class="copyright">Copyright 2018. 'Demola Akinpelu. All Right Reserved</p>
+  </footer>
+ 
+	
+</body>
+</html>
