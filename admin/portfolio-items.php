@@ -7,13 +7,16 @@
         <div class="row justify-content-center">
             <div class="col-sm-6">
                 <h1 class="text-center">Add Portfolio Item</h1>
+                <?php if ( !empty($successMessage) ): ?>
+                    <div class="form-success"> <?php echo $successMessage; ?> </div>
+			    <?php endif; ?>
                 <?php if ( !empty($addErr) ): ?>
                     <div class="alert alert-danger"> <?php echo $addErr ; ?> </div>
                 <?php endif; ?>
                 <form action="portfolio-item.php" method="POST">
                 <div class="mb-3">
-                    <label for="inv-image" class="form-control-label">Portfolio Image</label>
-                    <input class="form-control" type="file" id="inv-image" name="inv-image" >
+                    <label for="port-image" class="form-label">Portfolio Image</label>
+                    <input class="form-control" type="file" id="port-image" name="port-image" >
                     <?php if ( !empty($imageErr) ): ?>
                         <div class="form-errors"> <?php echo $imageErr; ?> </div>
                     <?php endif; ?>
@@ -27,7 +30,9 @@
                 </div>
                 <div class="mb-3">
                     <label for="port-desc" class="form-label">Portfolio Description</label>
-                    <input type="text" class="form-control" id="port-desc" name="port-desc" value="<?php echo $portDesc ; ?>">
+                    <textarea id="port-desc" class="form-control" rows="5" name="port-desc" >
+                        <?php echo $portDescErr ; ?>
+                    </textarea>
                     <?php if ( !empty($portDescErr) ): ?>
                       <div class="form-errors"> <?php echo $portDescErr; ?> </div>
                     <?php endif; ?>
