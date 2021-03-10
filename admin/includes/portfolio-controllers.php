@@ -1,5 +1,17 @@
+<?php
+
+//store error variables
+$imageErr = "";
+$portTitleErr = "";
+$portDescErr = "";
+$portUrlErr = "";
 
 
+//hold and update user data
+$image = "";
+$portTitle = "";
+$portDesc = "";
+$portUrl= "";
 
 
 
@@ -18,3 +30,5 @@ if(!empty($_FILES['inv-image']['name'])) {
     } else {
         $errors['invimage'] = "Waste type image required";
     }
+
+?>

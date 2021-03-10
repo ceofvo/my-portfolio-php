@@ -6,27 +6,41 @@
     <div class="container app-main">
         <div class="row justify-content-center">
             <div class="col-sm-6">
-                <h1 class="text-center">Login</h1>
-                <?php if ( !empty($loginErr) ): ?>
-                    <div class="alert alert-danger"> <?php echo $loginErr ; ?> </div>
+                <h1 class="text-center">Add Portfolio Item</h1>
+                <?php if ( !empty($addErr) ): ?>
+                    <div class="alert alert-danger"> <?php echo $addErr ; ?> </div>
                 <?php endif; ?>
-                <form action="login.php" method="POST">
+                <form action="portfolio-item.php" method="POST">
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<?php echo $email ; ?>">
-                    <?php if ( !empty($emailErr) ): ?>
-                      <div class="form-errors"> <?php echo $emailErr; ?> </div>
+                    <label for="inv-image" class="form-control-label">Portfolio Image</label>
+                    <input class="form-control" type="file" id="inv-image" name="inv-image" >
+                    <?php if ( !empty($imageErr) ): ?>
+                        <div class="form-errors"> <?php echo $imageErr; ?> </div>
                     <?php endif; ?>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" value="<?php echo $password ; ?>">
-                    <?php if ( !empty($passwordErr) ): ?>
-                      <div class="form-errors"> <?php echo $passwordErr; ?> </div>
+                    <label for="port-title" class="form-label">Portfolio Title</label>
+                    <input type="text" class="form-control" id="port-title" name="port-title" value="<?php echo $portTitle ; ?>">
+                    <?php if ( !empty($portTitleErr) ): ?>
+                      <div class="form-errors"> <?php echo $portTitleErr; ?> </div>
                     <?php endif; ?>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" class="btn btn-primary app-btn" value="Login" name="login-submit">  
+                    <label for="port-desc" class="form-label">Portfolio Description</label>
+                    <input type="text" class="form-control" id="port-desc" name="port-desc" value="<?php echo $portDesc ; ?>">
+                    <?php if ( !empty($portDescErr) ): ?>
+                      <div class="form-errors"> <?php echo $portDescErr; ?> </div>
+                    <?php endif; ?>
+                </div>
+                <div class="mb-3">
+                    <label for="port-url" class="form-label">Portfolio Url</label>
+                    <input type="text" class="form-control" id="port-url" name="port-url" value="<?php echo $portUrl ; ?>">
+                    <?php if ( !empty($portUrlErr) ): ?>
+                      <div class="form-errors"> <?php echo $portUrlErr; ?> </div>
+                    <?php endif; ?>
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-primary app-btn" value="Add Portfolio" name="add-portfolio">  
                 </div>
                 </form>
 
