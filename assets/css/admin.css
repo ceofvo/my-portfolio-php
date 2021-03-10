@@ -11,12 +11,18 @@ footer p {
 }
 
 .app-main {
-	height: calc(100vh - 100px);
+	min-height: calc(100vh - 100px);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 
+.app-main-inner {
+	min-height: calc(100vh - 100px);
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+}
 .app-btn {
 	width: 100%;
 }

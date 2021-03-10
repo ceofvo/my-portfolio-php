@@ -1,10 +1,15 @@
+<?php
+	require 'admin/includes/db.php';
+	include 'admin/includes/message-controllers.php';
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>My Personal Website</title>
-	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-   </head>
+  </head>
 
   <body>
   
@@ -97,32 +102,53 @@
 	    <h2 class="headings">Contact</h2>
 		<p class="subheadings">Have a question? Ask me anything.</p>
 		</div>
-		<form action="https://formspree.io/verticalorigin@yahoo.com" method="POST" class="form-format">
+
+		<form action="index.php#contact" method="POST" class="form-format">
+			<?php if ( !empty($successMessage) ): ?>
+                <div class="form-success"> <?php echo $successMessage; ?> </div>
+			<?php endif; ?>
 			<div>
 			<label for="fullname" class="form-label">Full Name</label><br>
-			<input id="fullname" class="form-input" type="text" name="full-name" placeholder="e.g John Doe" required>
+			<input id="fullname" class="form-input" type="text" name="full-name" placeholder="e.g John Doe" value="<?php echo $fullname ; ?>">
 			</div>
+			<?php if ( !empty($fullnameErr) ): ?>
+				<div class="form-errors"> <?php echo $fullnameErr; ?> </div>
+			<?php endif; ?>
 			
 			<div>
 			<label for="youremail" class="form-label">Your Email Address</label><br>
-			<input id="youremail" class="form-input" type="email" name="email-address" placeholder="e.g me@yahoo.com" required>
+			<input id="youremail" class="form-input" type="email" name="email-address" placeholder="e.g me@yahoo.com" value="<?php echo $email ; ?>">
             </div>
+			<?php if ( !empty($emailErr) ): ?>
+				<div class="form-errors"> <?php echo $emailErr; ?> </div>
+			<?php endif; ?>
 			
 			<div>
 			<label for="yourphone" class="form-label">Your Phone Number</label><br>
-			<input id="yourphone" class="form-input" type="tel" name="phone-number" placeholder="e.g 08012345678" pattern="[0-9]{11}" maxlength="11" required>
+			<input id="yourphone" class="form-input" type="tel" name="phone-number" placeholder="e.g 08012345678" pattern="[0-9]{11}" maxlength="11" value="<?php echo $phoneNumber ; ?>">
 			</div>
+			<?php if ( !empty($phoneNumberErr) ): ?>
+				<div class="form-errors"> <?php echo $phoneNumberErr; ?> </div>
+			<?php endif; ?>
 			
             <div>
 			<label for="subject"class="form-label">Subject</label><br>
-			<input id="subject" class="form-input"type="text" name="subject" required>
+			<input id="subject" class="form-input"type="text" name="subject" value="<?php echo $subject ; ?>">
 			</div>
+			<?php if ( !empty($subjectErr) ): ?>
+				<div class="form-errors"> <?php echo $subjectErr; ?> </div>
+			<?php endif; ?>
 			
 			<div>
 			<label for="message" class="form-label">Enter Your Message</label><br>
-			<textarea id="message" class="form-input" rows="5" name="message" required></textarea>
+			<textarea id="message" class="form-input" rows="5" name="message" >
+				<?php echo $messageBody ; ?>
+			</textarea>
 			</div>
-			<button type="submit" class="form-button">Send Message</button>
+			<?php if ( !empty($messageBodyErr) ): ?>
+				<div class="form-errors"> <?php echo $messageBodyErr; ?> </div>
+			<?php endif; ?>
+			<button type="submit" class="form-button" name="contact-submit">Send Message</button>
 		</form>
 	</section>
   
