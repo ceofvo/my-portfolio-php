@@ -152,6 +152,4 @@ $stmt->execute();
 $result = $stmt->get_result();
 $totalPortfolioItems = $result->num_rows;
 
-
-
 ?>

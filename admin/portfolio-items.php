@@ -1,62 +1,58 @@
 <?php
     include 'header.php';
     include 'includes/portfolio-controllers.php';
-?>
-    <!--Login Form Section-->
-    <div class="container app-main">
-        <div class="row justify-content-center">
-            <div class="col-sm-6">
-                <h1 class="text-center">Add Portfolio Item</h1>
-                <?php if ( !empty($successMessage) ): ?>
-                    <div class="form-success"> <?php echo $successMessage; ?> </div>
-			    <?php endif; ?>
-                <?php if ( !empty($addErr) ): ?>
-                    <div class="alert alert-danger"> <?php echo $addErr ; ?> </div>
-                <?php endif; ?>
-                <form action="portfolio-item.php" method="POST">
-                <div class="mb-3">
-                    <label for="port-image" class="form-label">Portfolio Image</label>
-                    <input class="form-control" type="file" id="port-image" name="port-image" >
-                    <?php if ( !empty($imageErr) ): ?>
-                        <div class="form-errors"> <?php echo $imageErr; ?> </div>
-                    <?php endif; ?>
-                </div>
-                <div class="mb-3">
-                    <label for="port-title" class="form-label">Portfolio Title</label>
-                    <input type="text" class="form-control" id="port-title" name="port-title" value="<?php echo $portTitle ; ?>">
-                    <?php if ( !empty($portTitleErr) ): ?>
-                      <div class="form-errors"> <?php echo $portTitleErr; ?> </div>
-                    <?php endif; ?>
-                </div>
-                <div class="mb-3">
-                    <label for="port-desc" class="form-label">Portfolio Description</label>
-                    <textarea id="port-desc" class="form-control" rows="5" name="port-desc" >
-                        <?php echo $portDescErr ; ?>
-                    </textarea>
-                    <?php if ( !empty($portDescErr) ): ?>
-                      <div class="form-errors"> <?php echo $portDescErr; ?> </div>
-                    <?php endif; ?>
-                </div>
-                <div class="mb-3">
-                    <label for="port-url" class="form-label">Portfolio Url</label>
-                    <input type="text" class="form-control" id="port-url" name="port-url" value="<?php echo $portUrl ; ?>">
-                    <?php if ( !empty($portUrlErr) ): ?>
-                      <div class="form-errors"> <?php echo $portUrlErr; ?> </div>
-                    <?php endif; ?>
-                </div>
-                <div class="mb-3">
-                    <input type="submit" class="btn btn-primary app-btn" value="Add Portfolio" name="add-portfolio">  
-                </div>
-                </form>
+    if ( !isset($_SESSION['id']) ) {
+        header('location: login.php');
+        exit();
+    }
 
+    //unset success message after deleting item
+    if( isset($_SESSION['timeout']) ) {
+        if (  time() > ($_SESSION['timeout'] + 3 )){
+            unset($_SESSION['success']);
+            unset($_SESSION['timeout']);
+        } 
+    }
+?>
+    <!--Display All Portfolio Items in a table format-->
+    <div class="container app-main-inner">
+        <h1 class="text-center mt-5">All Portfolio Items</h1>
+        <div class="row justify-content-center">
+            <div class="col-sm-4 text-center">
+                <a href="add-portfolio-item.php" class="btn btn-primary">+ Add New Project Item</a>
             </div>
         </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-sm-4 my-3">
+            <?php if ( isset($_SESSION['success']) ): ?>
+                <div class="alert alert-success text-center" role="alert">
+                    <?php echo $_SESSION['success']; ?>
+                </div>
+            <?php endif; ?>
+            </div>
+        </div>
+
+        <div class="row">
+        <?php while ( $row = $result->fetch_assoc() ): ?>  
+            <div class="col-sm-4 mb-5">
+            <div class="card portfolio-card">
+                <img src="../assets/img/<?php echo $row['image']; ?>" class="card-img-top" alt="<?php echo $row['title']; ?>">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $row['title']; ?></h5>
+                    <p class="card-text"><?php echo $row['description']; ?></p>
+                    <a href="<?php echo $row['url']; ?>" class="btn btn-primary" target="_blank">View Project</a>
+                </div>
+                <hr>
+                <div class="card-body">
+                    <a href="edit-portfolio-item.php?editid=<?php echo $row['id']; ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i> Edit </a>
+                    <a href="includes/delete-controllers.php?delid=<?php echo $row['id']; ?>" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                </div>
+            </div>
+            </div>
+        <?php endwhile; ?>
+        </div>
     </div>
-
-    </div>
-
-
-
 <?php
     include 'footer.php';
 ?>

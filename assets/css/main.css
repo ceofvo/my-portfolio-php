@@ -105,7 +105,9 @@ body{
 }
 
 .photo-container{
-	margin: 5px 5px;
+	background: #ffffff;
+	width: 100%;
+	margin: 20px;
 }
 
 .photo-container img{
@@ -200,7 +202,7 @@ footer a:hover{
 .container{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	justify-content: flex-start;
 }
 
 .card{
@@ -221,7 +223,7 @@ footer a:hover{
 .photo-container{
 	background: #ffffff;
 	width: 30%;
-	margin: 5px 5px;
+	margin: 20px;
 }
 
 .photo-container img{

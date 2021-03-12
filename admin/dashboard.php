@@ -1,5 +1,9 @@
 <?php
     include 'header.php';
+    if ( !isset($_SESSION['id']) ) {
+        header('location: login.php');
+        exit();
+    }
 ?>
     <!--Dashboard Data-->
     <div class="container app-main">

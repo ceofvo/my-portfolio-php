@@ -1,6 +1,7 @@
 <?php
 	require 'admin/includes/db.php';
 	include 'admin/includes/message-controllers.php';
+	include 'admin/includes/portfolio-controllers.php';
 ?>
 
 <!DOCTYPE html>
@@ -59,40 +60,18 @@
 			<h2 class="headings">My Portfolio</h2>
 			</div>
 			<div class="container">
+			<?php while ( $row = $result->fetch_assoc() ): ?>  
 			<div class="photo-container">
 				<div class="photo">
-				  <img src="assets/img/1.jpg" alt="A photo of a grizzly bear">	
+				  <img src="assets/img/<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>">	
 				    <div class="photo-overlay">
-					  <h3>Academy Landing Page</h3>
-					  <p>A Website Development Masterclass Landing Page written developed with HTML, CSS & Bootstrap.</p>
-					    <a href="#">View Project</a>
+					  <h3><?php echo $row['title']; ?></h3>
+					  <p><?php echo $row['description']; ?></p>
+					    <a href="<?php echo $row['url']; ?>" target="_blank">View Project</a>
 					</div>
 				</div>
 			</div>
-
-			<div class="photo-container">
-				<div class="photo">
-				  <img src="assets/img/2.jpg" alt="A mountainous landscape">	
-				  <div class="photo-overlay">
-					  <h3>Responsive EPL Table</h3>
-					  <p>A mobile Responsive League Table for Barclay Premier League 2018/2019.</p>
-					  <a href="#">View Project</a>
-					</div>
-				</div>
-			</div>
-
-			<div class="photo-container">
-				<div class="photo">
-				  <img src="assets/img/3.jpg" alt="Yosemite national park">	
-				  <div class="photo-overlay">
-					  <h3>Student Record Finder</h3>
-					  <p>A mini search engine to retrieve records in Javascript written in HTML, CSS & Vanilla JavaScript.</p>
-					  <a href="#">View Project</a>
-					</div>
-				</div>
-			</div>	
-			
-			
+			<?php endwhile; ?>
 			
 	</div>	
 	</section>

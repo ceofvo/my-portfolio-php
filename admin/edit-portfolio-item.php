@@ -1,21 +1,32 @@
 <?php
     include 'header.php';
     include 'includes/portfolio-controllers.php';
+    if ( !isset($_SESSION['id']) ) {
+        header('location: login.php');
+        exit();
+    }
 ?>
     <!--Login Form Section-->
     <div class="container app-main-inner">
         <div class="row justify-content-center">
             <div class="col-sm-6">
-                <h1 class="text-center">Add Portfolio Item</h1>
+                <h1 class="text-center">Edit Portfolio Item</h1>
                 <?php if ( !empty($successMessage) ): ?>
                     <div class="form-success alert alert-success"> <?php echo $successMessage; ?> </div>
 			    <?php endif; ?>
                 <?php if ( !empty($addErr) ): ?>
                     <div class="alert alert-danger"> <?php echo $addErr ; ?> </div>
                 <?php endif; ?>
-                <form action="add-portfolio-item.php" method="POST" enctype="multipart/form-data">
+                <form action="edit-portfolio-item.php?editid=<?php echo $_GET['editid']; ?>" method="POST" enctype="multipart/form-data">
+
+                <div class="mb-3 portfolio-edit">
+                    <p>Existing Portfolio image</p>
+                    <img src="../assets/img/<?php echo $image; ?>" alt="<?php echo $portTitle ; ?>">
+                </div>
+                <input type="hidden" name="portfolio-id" value="<?php echo $portfolioId ;?>">
+                <input type="hidden" name="port-image-curr" value="<?php echo $image ;?>">
                 <div class="mb-3">
-                    <label for="port-image" class="form-label">Portfolio Image</label>
+                    <label for="port-image" class="form-label">Upload New Portfolio Image</label>
                     <input class="form-control" type="file" id="port-image" name="port-image"  >
                     <?php if ( !empty($imageErr) ): ?>
                         <div class="form-errors"> <?php echo $imageErr; ?> </div>
@@ -43,7 +54,7 @@
                     <?php endif; ?>
                 </div>
                 <div class="mb-3">
-                    <input type="submit" class="btn btn-primary app-btn" value="Add Portfolio" name="add-portfolio">  
+                    <input type="submit" class="btn btn-primary app-btn" value="Update Portfolio" name="edit-portfolio">  
                 </div>
                 </form>
 

@@ -1,9 +1,14 @@
 <?php
     include 'header.php';
     include 'includes/message-controllers.php';
+    if ( !isset($_SESSION['id']) ) {
+        header('location: login.php');
+        exit();
+    }
 ?>
     <!--Display All Messages in a table format-->
     <div class="container app-main-inner">
+    <h1 class="text-center my-5">All Messages</h1>
         <table class="table table-success table-striped mt-5">
             <thead>
             <tr>

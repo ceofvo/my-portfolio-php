@@ -62,7 +62,6 @@ if ( isset( $_POST['contact-submit'] ) ) {
 
 }
 
-
 //Extract data from the message table in the database and populate the message page
 $sql2 = "SELECT * FROM messages";
 $stmt = $conn->prepare($sql2); 

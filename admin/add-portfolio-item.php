@@ -1,6 +1,10 @@
 <?php
     include 'header.php';
     include 'includes/portfolio-controllers.php';
+    if ( !isset($_SESSION['id']) ) {
+        header('location: login.php');
+        exit();
+    }
 ?>
     <!--Login Form Section-->
     <div class="container app-main-inner">
